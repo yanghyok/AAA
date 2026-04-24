@@ -28,17 +28,33 @@ cd do-better-workspace
 VS Code 또는 터미널에서 Claude Code 실행.
 
 ### 3. 초기 설정
-`CLAUDE.md` 하단의 "내 프로필" 섹션을 직접 채우거나, Claude에게:
+
+Claude에게:
 ```
 워크스페이스 세팅해줘
 ```
-라고 말하면 `/setup-workspace` 스킬이 대화형으로 채워줍니다.
 
-### 4. 첫 Daily Note 만들기
+`setup-workspace` 스킬이 대화형으로 다음을 진행합니다:
+
+1. **프로필 작성** — CLAUDE.md의 "내 프로필" 섹션을 4개 질문으로 채움
+2. **Python 환경** — 데이터 스킬(csv-clean, excel-to-csv, pdf-to-md)용 `.venv` 생성 + 패키지 설치 (원할 때만)
+3. **선택 도구 체크** — `git`, `gws` (Google Workspace CLI) 설치 상태 확인 및 안내
+4. **첫 Daily Note** — 오늘의 기록 시작
+
+각 단계는 건너뛸 수 있고, 이미 세팅된 항목은 자동 스킵됩니다.
+
+### 4. 일상 루틴
+
 ```
-오늘 daily note 만들어줘
+오늘 daily note 만들어줘      # daily-note 스킬
+할 일 추가해줘: 이메일 답장   # todo 스킬
+이 아이디어 기록해줘          # idea 스킬
 ```
-`daily-note` 스킬이 자동으로 실행됩니다.
+
+Python 스킬을 쓸 때는 가상환경 활성화:
+```bash
+source .venv/bin/activate
+```
 
 ## Philosophy
 

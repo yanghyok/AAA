@@ -20,8 +20,8 @@
 ### 다음 단계 (우선순위 순)
 
 1. **필수 core skills 포팅** ✅ 완료 (2026-04-24)
-   - [x] `setup-workspace` (신규 설계)
-   - [x] `daily-note` (선이 섹션/PKM_ROOT 제거, gcalcli optional)
+   - [x] `setup-workspace` (신규 설계. 프로필 + Python venv + 선택 도구(git/gws) 체크 + 첫 daily note 7단계로 확장)
+   - [x] `daily-note` (선이 섹션/PKM_ROOT 제거, Google Calendar는 gws cli + Python json 파싱으로 연결)
    - [x] `daily-review` (프로젝트별 하드코딩 제거, 카테고리 그룹핑)
    - [x] `todo` (Google Tasks 의존성 제거)
    - [x] `todos` (Google Tasks/IMI/GPTers 예시 제거)
@@ -38,6 +38,8 @@
    - [x] `pdf-to-md` (work-journal 하드코딩 제거, 범용 저장 경로)
    - [x] `wiki-ingest` (pkm/30-knowledge/00-wiki → ./30-knowledge/00-wiki)
    - [x] `wiki-lint` (동일 경로 조정)
+   - [x] `doc-updater` (cache `.cache/doc-updater/`, docs_path 워크스페이스 상대, `context: fork` 제거, skill-updater/agent-updater 의존성 제거 → 영향 리포트만 출력)
+   - [x] `md-to-pdf` (Monochrome Dark 테마만 포팅, DBT Deep Forest 테마 제외. Environment Detection 제거, 브랜드 중립 표현으로 정리)
 
 3. **Agents 포팅 (범용만)** ✅ 완료 (2026-04-24)
    - [x] `research-worker` (frontmatter 간소화, /decompose 참조 제거)

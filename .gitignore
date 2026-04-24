@@ -19,6 +19,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.python-version
 
 # Secrets
 .env
@@ -29,3 +30,6 @@ venv/
 # Temp / work
 00-inbox/*.tmp
 .playwright-mcp/
+
+# Skill cache
+.cache/
