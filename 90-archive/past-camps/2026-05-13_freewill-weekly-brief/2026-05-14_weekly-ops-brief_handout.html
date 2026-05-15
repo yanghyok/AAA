@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>앙트십스쿨 53개교 주간 운영 현황 브리프 — 2026-05-14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+  /* ========== Freewill Design Tokens ========== */
+  :root {
+    --canvas: #FAF7F2;
+    --surface: #FFFFFF;
+    --surface-muted: #F2EFE8;
+    --surface-strong: #2A2A2A;
+    --ink: #1A1A1A;
+    --body: #4A4A4A;
+    --muted: #8C8C8C;
+    --disabled: #BFBFBF;
+    --orange: #FF6B35;
+    --orange-soft: #FFE4D6;
+    --teal: #2C7A7B;
+    --teal-soft: #E0F2F1;
+    --hairline: #E0DAD0;
+    --hairline-strong: #C7BFB0;
+    --success: #16A34A;
+    --success-soft: #DCFCE7;
+    --warning: #F59E0B;
+    --warning-soft: #FEF3C7;
+    --danger: #DC2626;
+    --danger-soft: #FEE2E2;
+    --neutral: #6B7280;
+    --neutral-soft: #F3F4F6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .mono { font-family: 'JetBrains Mono', 'Inter', monospace; }
+  em { font-style: normal; color: var(--orange); font-weight: 700; }
+
+  /* ========== Page ========== */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 13mm 15mm 11mm 15mm;
+    background: var(--canvas);
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ========== Header / Footer ========== */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 4mm;
+  }
+  .brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .brand .brand-accent { color: var(--orange); }
+  .header-meta {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .page-footer {
+    margin-top: auto;
+    padding-top: 3mm;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .page-number { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+
+  /* ========== Cover ========== */
+  .cover {
+    padding: 24mm 16mm 16mm 16mm;
+    height: 297mm;
+    display: flex;
+    flex-direction: column;
+    background: var(--canvas);
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .cover-brand {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12mm;
+  }
+  .cover-eyebrow {
+    font-size: 13px;
+    color: var(--body);
+    letter-spacing: 0.04em;
+    margin-bottom: 6mm;
+  }
+  .cover-title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 8mm;
+  }
+  .cover-sub {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.55;
+    margin-bottom: 16mm;
+  }
+  .cover-divider {
+    height: 1px;
+    background: var(--hairline-strong);
+    margin: 8mm 0;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm 12mm;
+    margin-top: 8mm;
+  }
+  .cover-meta-item .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3mm;
+  }
+  .cover-meta-item .value {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .cover-footer {
+    margin-top: auto;
+    padding-top: 8mm;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .cover-footer .tag {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ========== Section Heading ========== */
+  .section-number {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.5mm;
+  }
+  .section-title {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 3mm;
+    line-height: 1.25;
+  }
+  .section-lede {
+    font-size: 11.5px;
+    color: var(--body);
+    margin-bottom: 4mm;
+    line-height: 1.5;
+  }
+
+  /* ========== Headline Stat Band ========== */
+  .stat-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin-bottom: 6mm;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 6mm;
+    box-shadow: 0 1px 2px rgba(26,26,26,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 2mm;
+  }
+  .stat-card.danger { border-left: 4px solid var(--danger); }
+  .stat-card.warning { border-left: 4px solid var(--warning); }
+  .stat-card.success { border-left: 4px solid var(--teal); }
+  .stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stat-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .stat-unit { font-size: 14px; font-weight: 600; color: var(--body); margin-left: 2px; }
+  .stat-note {
+    font-size: 11px;
+    color: var(--body);
+    line-height: 1.5;
+    margin-top: 1mm;
+  }
+
+  /* ========== Headline Text Card ========== */
+  .headline-card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 5mm 6mm;
+    margin-bottom: 4mm;
+  }
+  .headline-card.danger { border-left: 4px solid var(--danger); }
+  .headline-card.success { border-left: 4px solid var(--teal); }
+  .headline-card.warning { border-left: 4px solid var(--warning); }
+  .headline-card-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2mm;
+  }
+  .headline-card-body {
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .headline-card-body strong { font-weight: 700; }
+
+  /* ========== Table ========== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 10.5px;
+    margin-bottom: 3mm;
+  }
+  thead { background: var(--surface-muted); }
+  th {
+    text-align: left;
+    padding: 2mm 2.5mm;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  td {
+    padding: 1.8mm 2.5mm;
+    border-bottom: 1px solid var(--hairline);
+    color: var(--body);
+    font-size: 10.5px;
+    vertical-align: middle;
+    line-height: 1.45;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.school { color: var(--ink); font-weight: 600; }
+  td.num { font-family: 'JetBrains Mono', monospace; font-weight: 500; color: var(--ink); }
+  td.center { text-align: center; }
+
+  /* ========== Chips & Badges ========== */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 0;
+  }
+  .chip-session {
+    background: var(--orange-soft);
+    color: var(--orange);
+  }
+  .chip-grade {
+    background: var(--surface-muted);
+    color: var(--body);
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 9999px;
+  }
+  .badge-success { background: var(--success-soft); color: #15803d; }
+  .badge-warning { background: var(--warning-soft); color: #b45309; }
+  .badge-danger { background: var(--danger-soft); color: #b91c1c; }
+  .badge-neutral { background: var(--neutral-soft); color: #374151; }
+
+  /* ========== Alert Inline ========== */
+  .alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .alert.danger { color: var(--danger); }
+  .alert.warning { color: var(--warning); }
+  .alert.success { color: var(--teal); }
+  .alert .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    display: inline-block;
+  }
+  .alert.danger .dot { background: var(--danger); }
+  .alert.warning .dot { background: var(--warning); }
+  .alert.success .dot { background: var(--teal); }
+  .alert.neutral { color: var(--muted); }
+  .alert.neutral .dot { background: var(--muted); }
+
+  /* ========== Subnote (small text under sections) ========== */
+  .subnote {
+    background: var(--surface-muted);
+    border-left: 3px solid var(--orange);
+    padding: 2.5mm 3.5mm;
+    font-size: 10.5px;
+    color: var(--body);
+    margin-bottom: 3mm;
+    line-height: 1.5;
+    border-radius: 0 4px 4px 0;
+  }
+  .subnote strong { color: var(--ink); }
+
+  /* ========== Small section title (h3-ish) ========== */
+  .subsection-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 3mm 0 2mm 0;
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    letter-spacing: -0.01em;
+  }
+  .subsection-title .dot-marker {
+    width: 8px; height: 8px;
+    border-radius: 9999px;
+    display: inline-block;
+  }
+  .subsection-title .dot-marker.danger { background: var(--danger); }
+  .subsection-title .dot-marker.warning { background: var(--warning); }
+  .subsection-title .dot-marker.neutral { background: var(--neutral); }
+  .subsection-title .count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-left: auto;
+  }
+
+  /* ========== Divider ========== */
+  .divider {
+    border: none;
+    height: 1px;
+    background: var(--hairline);
+    margin: 4mm 0;
+  }
+
+  /* ========== Closing ========== */
+  .closing {
+    padding: 36mm 20mm;
+    height: 297mm;
+    background: var(--canvas);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .closing-mark {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--orange);
+    text-transform: uppercase;
+  }
+  .closing-body h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 6mm;
+  }
+  .closing-body p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.6;
+  }
+  .closing-foot {
+    border-top: 1px solid var(--hairline);
+    padding-top: 6mm;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ========== Print ========== */
+  @media print {
+    body { background: var(--canvas); }
+    .page, .cover, .closing { margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER
+============================================================ -->
+<section class="cover">
+  <div class="cover-brand">FREEWILL · 앙트십스쿨</div>
+  <div class="cover-eyebrow">주간 운영 현황 브리프</div>
+  <h1 class="cover-title">53개교 운영 점검 —<br>다음 주 <em>5/20(수)</em>를 위한 점검표</h1>
+  <p class="cover-sub">
+    같은 날 11개교가 동시에 가는 회차.<br>
+    발송·앙꼬·이슈를 한 화면에 묶어 혜선님과의 미팅에서<br>
+    학교명 풀네임으로 바로 짚을 수 있게 정리했습니다.
+  </p>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Report Date</div>
+      <div class="value mono">2026-05-14 (목)</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Coverage</div>
+      <div class="value">앙트십스쿨 53개교</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Prepared by</div>
+      <div class="value">하나리 · 앙트십스쿨 운영팀</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">For</div>
+      <div class="value">혜선님 · 5/20(수) 운영 점검 미팅</div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="tag">청소년 기업가정신 · 공교육 디지털전환</div>
+    <div class="tag mono">v1 · weekly-ops-brief</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 1 — Headlines
+============================================================ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand"><span class="brand-accent">Freewill</span> · 주간 운영 브리프</div>
+    <div class="header-meta mono">2026-05-14 (목) · 53개교</div>
+  </div>
+
+  <div class="section-number">Headline · 혜선님 보고용</div>
+  <h2 class="section-title">한 눈에 보는 <em>이번 주</em> 운영 상태</h2>
+  <p class="section-lede">다음 주(5/14~5/21) 수업 예정 · 직전 주(5/07~5/13) 이슈 · 미확인 이슈 전체를 종합한 3줄 헤드라인입니다.</p>
+
+  <div class="stat-band">
+    <div class="stat-card danger">
+      <div class="stat-label">5/20 수업 예정</div>
+      <div class="stat-number">11<span class="stat-unit">개교</span></div>
+      <div class="stat-note">발송 미완료 <strong>6건</strong> · 그중 미발송 <strong>4건</strong></div>
+    </div>
+    <div class="stat-card success">
+      <div class="stat-label">직전 주 이슈</div>
+      <div class="stat-number">3<span class="stat-unit">건</span></div>
+      <div class="stat-note">심1·중1·저1 · <strong>전부 전화 대응 완료</strong></div>
+    </div>
+    <div class="stat-card warning">
+      <div class="stat-label">미확인 이슈 누적</div>
+      <div class="stat-number">24<span class="stat-unit">건</span></div>
+      <div class="stat-note">심 <strong>8</strong> · 중 6 · 저 10 — 본사 컨택 필요</div>
+    </div>
+  </div>
+
+  <div class="headline-card danger">
+    <div class="headline-card-eyebrow">01 · 다음 주 수업</div>
+    <div class="headline-card-body">
+      5/20(수) 하루에 <strong>11개교 집중</strong>, 발송 <strong>미완료 6건</strong>(미발송 4·발송준비중 2),
+      그중 <strong>D-6 시점 미발송 4건</strong>(<strong>수정중학교·라온중학교·다인중학교·마루고등학교</strong>)이 최우선 조치 대상.
+    </div>
+  </div>
+
+  <div class="headline-card success">
+    <div class="headline-card-eyebrow">02 · 직전 주 이슈</div>
+    <div class="headline-card-body">
+      심 1건·중 1건·저 1건(모두 5/13 발생, <strong>전부 전화 대응 완료</strong>). 신규 미확인 0건.
+      직전 주 운영은 클린합니다.
+    </div>
+  </div>
+
+  <div class="headline-card warning">
+    <div class="headline-card-eyebrow">03 · 운영 위험 신호</div>
+    <div class="headline-card-body">
+      <strong>앙꼬5(예린)에 5/20 4개교 몰림</strong>(라온중·다정고·도현중·마루고) + 이 중 2개교가 미발송.
+      한 명의 발송 누락이 1명 일정 전체를 흔들 수 있어 <strong>분산 또는 발송 더블체크 필수</strong>.
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>FREEWILL · 앙트십스쿨 주간 운영 브리프</div>
+    <div class="page-number">01 / 06</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 2 — Section 1: 5/20 점검표
+============================================================ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand"><span class="brand-accent">Freewill</span> · 주간 운영 브리프</div>
+    <div class="header-meta mono">2026-05-14 (목) · 53개교</div>
+  </div>
+
+  <div class="section-number">Section 01 · Next Week</div>
+  <h2 class="section-title">5/20(수) <em>11개교</em> 수업 운영 점검표</h2>
+  <p class="section-lede">같은 날 11개교. 학교 한 곳도 누락 없이 발송·앙꼬·차시를 확인합니다. 학교명은 풀네임 유지.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 21%;">학교명</th>
+        <th style="width: 7%;">학년</th>
+        <th style="width: 13%;">지역</th>
+        <th style="width: 10%;">차시</th>
+        <th style="width: 13%;">앙꼬</th>
+        <th style="width: 9%;">교시</th>
+        <th style="width: 11%;">발송상태</th>
+        <th style="width: 16%;">준비 알림</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="school">푸른중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>서울 강서구</td>
+        <td><span class="chip chip-session">6차시/6차시</span></td>
+        <td>앙꼬2(현지)</td>
+        <td class="num">6-7</td>
+        <td><span class="badge badge-success">배송완료</span></td>
+        <td><span class="alert success"><span class="dot"></span>정상</span></td>
+      </tr>
+      <tr>
+        <td class="school">수정중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>서울 노원구</td>
+        <td><span class="chip chip-session">6차시/8차시</span></td>
+        <td>앙꼬1(주영)</td>
+        <td class="num">3-4</td>
+        <td><span class="badge badge-danger">미발송</span></td>
+        <td><span class="alert danger"><span class="dot"></span>긴급 발송 D-6</span></td>
+      </tr>
+      <tr>
+        <td class="school">큰빛중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>서울 마포구</td>
+        <td><span class="chip chip-session">6차시/6차시</span></td>
+        <td>앙꼬2(현지)</td>
+        <td class="num">1-2</td>
+        <td><span class="badge badge-success">발송완료</span></td>
+        <td><span class="alert success"><span class="dot"></span>정상</span></td>
+      </tr>
+      <tr>
+        <td class="school">사랑중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>인천 서구</td>
+        <td><span class="chip chip-session">6차시/6차시</span></td>
+        <td>앙꼬2(현지)</td>
+        <td class="num">1-2</td>
+        <td><span class="badge badge-warning">발송준비중</span></td>
+        <td><span class="alert warning"><span class="dot"></span>발송 마감 임박</span></td>
+      </tr>
+      <tr>
+        <td class="school">라온중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>강원 춘천시</td>
+        <td><span class="chip chip-session">6차시/6차시</span></td>
+        <td>앙꼬5(예린)</td>
+        <td class="num">1-2</td>
+        <td><span class="badge badge-danger">미발송</span></td>
+        <td><span class="alert danger"><span class="dot"></span>긴급 발송 D-6</span></td>
+      </tr>
+      <tr>
+        <td class="school">도현중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>강원 원주시</td>
+        <td><span class="chip chip-session">6차시/6차시</span></td>
+        <td>앙꼬5(예린)</td>
+        <td class="num">5-6</td>
+        <td><span class="badge badge-warning">발송준비중</span></td>
+        <td><span class="alert warning"><span class="dot"></span>발송 마감 임박</span></td>
+      </tr>
+      <tr>
+        <td class="school">다정고등학교</td>
+        <td><span class="chip chip-grade">고등</span></td>
+        <td>광주 서구</td>
+        <td><span class="chip chip-session">6차시/6차시</span></td>
+        <td>앙꼬5(예린)</td>
+        <td class="num">5-6</td>
+        <td><span class="badge badge-success">발송완료</span></td>
+        <td><span class="alert warning"><span class="dot"></span>직전 차시 이슈 1건</span></td>
+      </tr>
+      <tr>
+        <td class="school">유담중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>충남 천안시</td>
+        <td><span class="chip chip-session">7차시/8차시</span></td>
+        <td>앙꼬3(나윤)</td>
+        <td class="num">5-6</td>
+        <td><span class="badge badge-success">발송완료</span></td>
+        <td><span class="alert success"><span class="dot"></span>정상</span></td>
+      </tr>
+      <tr>
+        <td class="school">다인중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>세종 세종시</td>
+        <td><span class="chip chip-session">7차시/8차시</span></td>
+        <td>앙꼬3(나윤)</td>
+        <td class="num">6-7</td>
+        <td><span class="badge badge-danger">미발송</span></td>
+        <td><span class="alert danger"><span class="dot"></span>긴급 D-6 + 4차 이슈</span></td>
+      </tr>
+      <tr>
+        <td class="school">마루고등학교</td>
+        <td><span class="chip chip-grade">고등</span></td>
+        <td>전남 순천시</td>
+        <td><span class="chip chip-session">6차시/6차시</span></td>
+        <td>앙꼬5(예린)</td>
+        <td class="num">6-7</td>
+        <td><span class="badge badge-danger">미발송</span></td>
+        <td><span class="alert danger"><span class="dot"></span>긴급 발송 D-6</span></td>
+      </tr>
+      <tr>
+        <td class="school">다르내중학교</td>
+        <td><span class="chip chip-grade">중등</span></td>
+        <td>경남 창원시</td>
+        <td><span class="chip chip-session">6차시/8차시</span></td>
+        <td>앙꼬4(소영)</td>
+        <td class="num">3-4</td>
+        <td><span class="badge badge-success">발송완료</span></td>
+        <td><span class="alert success"><span class="dot"></span>정상</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="subnote">
+    <strong>즉시 조치 4건 (미발송):</strong> 수정중학교 · 라온중학교 · 다인중학교 · 마루고등학교 → 내일 <strong>5/15(금) 발송 마감</strong>.<br>
+    <strong>임박 2건 (발송준비중):</strong> 사랑중학교 · 도현중학교 → 주말 전까지 송장번호 확정 필요.
+  </div>
+
+  <div class="page-footer">
+    <div>FREEWILL · 앙트십스쿨 주간 운영 브리프</div>
+    <div class="page-number">02 / 06</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 3 — 앙꼬별 분포 + Section 2
+============================================================ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand"><span class="brand-accent">Freewill</span> · 주간 운영 브리프</div>
+    <div class="header-meta mono">2026-05-14 (목) · 53개교</div>
+  </div>
+
+  <div class="section-number">Section 01 · Workload</div>
+  <h2 class="section-title">5/20 <em>앙꼬별</em> 부담 분포</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">앙꼬</th>
+        <th style="width: 14%;">학교 수</th>
+        <th>담당 학교 (풀네임)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="school">앙꼬5(예린)</td>
+        <td class="num"><strong style="color: var(--danger);">4개교</strong> ⚠</td>
+        <td>라온중학교 · 다정고등학교 · 도현중학교 · 마루고등학교</td>
+      </tr>
+      <tr>
+        <td class="school">앙꼬2(현지)</td>
+        <td class="num">3개교</td>
+        <td>푸른중학교 · 큰빛중학교 · 사랑중학교</td>
+      </tr>
+      <tr>
+        <td class="school">앙꼬3(나윤)</td>
+        <td class="num">2개교</td>
+        <td>유담중학교 · 다인중학교</td>
+      </tr>
+      <tr>
+        <td class="school">앙꼬1(주영)</td>
+        <td class="num">1개교</td>
+        <td>수정중학교</td>
+      </tr>
+      <tr>
+        <td class="school">앙꼬4(소영)</td>
+        <td class="num">1개교</td>
+        <td>다르내중학교</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="subnote">
+    5개교 초과 임계값 미만이지만, <strong>앙꼬5(예린) 4개교 중 미발송 2건(라온중·마루고)</strong> —
+    한 분에게 부담이 몰린 상태에서 발송 리스크까지 겹침. 발송팀이 <strong>예린 담당 4곳 우선 처리</strong> 권장.
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-number">Section 02 · Last Week</div>
+  <h2 class="section-title">직전 주(5/07~5/13) <em>후기 미작성</em> 학교</h2>
+  <p class="section-lede">수업 완료 15건 중 미등록 6건. 전부 5/13 수업, 경과 1일 — 독려 임계(3일) 미달.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 26%;">학교명</th>
+        <th style="width: 14%;">차시</th>
+        <th style="width: 18%;">수업일자</th>
+        <th style="width: 26%;">배정 앙꼬</th>
+        <th style="width: 16%;">경과일</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="school">한울중학교</td><td><span class="chip chip-session">6차시/6차시</span></td><td class="num">2026-05-13</td><td>앙꼬1(주영)</td><td class="num">1일</td></tr>
+      <tr><td class="school">수정중학교</td><td><span class="chip chip-session">5차시/8차시</span></td><td class="num">2026-05-13</td><td>앙꼬1(주영)</td><td class="num">1일</td></tr>
+      <tr><td class="school">라온중학교</td><td><span class="chip chip-session">5차시/6차시</span></td><td class="num">2026-05-13</td><td>앙꼬5(예린)</td><td class="num">1일</td></tr>
+      <tr><td class="school">도현중학교</td><td><span class="chip chip-session">5차시/6차시</span></td><td class="num">2026-05-13</td><td>앙꼬5(예린)</td><td class="num">1일</td></tr>
+      <tr><td class="school">유담중학교</td><td><span class="chip chip-session">6차시/8차시</span></td><td class="num">2026-05-13</td><td>앙꼬3(나윤)</td><td class="num">1일</td></tr>
+      <tr><td class="school">마루고등학교</td><td><span class="chip chip-session">5차시/6차시</span></td><td class="num">2026-05-13</td><td>앙꼬5(예린)</td><td class="num">1일</td></tr>
+    </tbody>
+  </table>
+
+  <div class="subnote">
+    <strong>참고:</strong> 앙꼬5(예린) 3건, 앙꼬1(주영) 2건, 앙꼬3(나윤) 1건. <strong>5/16(토) 이후 미작성 시</strong> 독려 알림 자동 발송.
+  </div>
+
+  <div class="page-footer">
+    <div>FREEWILL · 앙트십스쿨 주간 운영 브리프</div>
+    <div class="page-number">03 / 06</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 4 — Section 3 (심)
+============================================================ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand"><span class="brand-accent">Freewill</span> · 주간 운영 브리프</div>
+    <div class="header-meta mono">2026-05-14 (목) · 53개교</div>
+  </div>
+
+  <div class="section-number">Section 03 · Unresolved Issues</div>
+  <h2 class="section-title">미확인 이슈 — <em>심각도 "심"</em> 8건</h2>
+  <p class="section-lede">이슈여부 Y · 대응상태 미확인. 본사 → 학교 직접 컨택이 필요한 건들.</p>
+
+  <div class="subsection-title">
+    <span class="dot-marker danger"></span>
+    심각도 "심" — 본사 → 학교 직접 컨택 필요
+    <span class="count">8건</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">학교명</th>
+        <th style="width: 7%;">차시</th>
+        <th style="width: 14%;">수업일자</th>
+        <th style="width: 38%;">후기 요약</th>
+        <th style="width: 14%;">작성 앙꼬</th>
+        <th style="width: 7%;">경과</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="school">푸른중학교</td>
+        <td class="num">4차</td>
+        <td class="num">2026-05-06</td>
+        <td>학생 1명이 다른 학생 워크북 찢음, 담임 인계됨. 본사 추가 컨택 요청</td>
+        <td>앙꼬2(현지)</td>
+        <td class="num">8일</td>
+      </tr>
+      <tr>
+        <td class="school">예솔고등학교</td>
+        <td class="num">5차</td>
+        <td class="num">2026-05-06</td>
+        <td>담당 교사 다음 차시부터 어렵다고 함. 학교 일정 재조율 필요</td>
+        <td>앙꼬3(나윤)</td>
+        <td class="num">8일</td>
+      </tr>
+      <tr>
+        <td class="school">청솔자율형사립고</td>
+        <td class="num">4차</td>
+        <td class="num">2026-04-29</td>
+        <td>담당 교사 다음 차시부터 어렵다고 함. 학교 일정 재조율 필요</td>
+        <td>앙꼬1(주영)</td>
+        <td class="num">15일</td>
+      </tr>
+      <tr>
+        <td class="school">유진중학교</td>
+        <td class="num">6차</td>
+        <td class="num">2026-04-29</td>
+        <td>택배 미도착, 백업본으로 진행. 발송 추적 시스템 점검 필요</td>
+        <td>앙꼬1(주영)</td>
+        <td class="num">15일</td>
+      </tr>
+      <tr>
+        <td class="school">유진중학교</td>
+        <td class="num">5차</td>
+        <td class="num">2026-04-22</td>
+        <td>학생 워크북 훼손 사건, 본사 컨택 요청</td>
+        <td>앙꼬1(주영)</td>
+        <td class="num">22일</td>
+      </tr>
+      <tr>
+        <td class="school">다온고등학교</td>
+        <td class="num">6차</td>
+        <td class="num">2026-04-08</td>
+        <td>담당 교사 다음 차시부터 어렵다고 함. 학교 일정 재조율 필요</td>
+        <td>앙꼬2(현지)</td>
+        <td class="num">36일</td>
+      </tr>
+      <tr>
+        <td class="school">기쁨중학교</td>
+        <td class="num">2차</td>
+        <td class="num">2026-03-18</td>
+        <td>학생 워크북 훼손 사건, 본사 컨택 요청</td>
+        <td>앙꼬3(나윤)</td>
+        <td class="num">57일</td>
+      </tr>
+      <tr>
+        <td class="school">선린고등학교</td>
+        <td class="num">2차</td>
+        <td class="num">2026-03-11</td>
+        <td>택배 미도착, 백업본으로 진행. 발송 추적 시스템 점검 필요</td>
+        <td>앙꼬1(주영)</td>
+        <td class="num">64일</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="subnote">
+    <strong>가장 시급한 2건:</strong><br>
+    ① <strong>청솔자율형사립고 · 다온고등학교 · 예솔고등학교</strong> — 담당 교사 "다음 차시 어렵다" 3건. 학교 측 진행 의지 약화. <strong>본사 직접 연락으로 진행 방식 재합의 필요.</strong><br>
+    ② <strong>유진중학교</strong> — 같은 학교에서 워크북 훼손(5차) + 택배 미도착(6차) 연속 발생. <strong>학교 측 신뢰 회복 컨택 필요.</strong>
+  </div>
+
+  <div class="page-footer">
+    <div>FREEWILL · 앙트십스쿨 주간 운영 브리프</div>
+    <div class="page-number">04 / 06</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 5 — Section 3 (중)
+============================================================ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand"><span class="brand-accent">Freewill</span> · 주간 운영 브리프</div>
+    <div class="header-meta mono">2026-05-14 (목) · 53개교</div>
+  </div>
+
+  <div class="section-number">Section 03 · Continued</div>
+  <h2 class="section-title">미확인 이슈 — 심각도 <em>"중"</em> 6건</h2>
+  <p class="section-lede">다음 회차 운영 시 사전 조치가 필요한 건들. 반복 패턴은 시스템 수정으로 잡습니다.</p>
+
+  <div class="subsection-title">
+    <span class="dot-marker warning"></span>
+    심각도 "중" — 다음 회차 사전 조치
+    <span class="count">6건</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 18%;">학교명</th>
+        <th style="width: 7%;">차시</th>
+        <th style="width: 13%;">수업일자</th>
+        <th style="width: 47%;">후기 요약</th>
+        <th style="width: 15%;">작성 앙꼬</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="school">송림중학교</td><td class="num">6차</td><td class="num">2026-05-06</td><td>BMC 워크북 5장 부족. 다음 회차 +10장 발송</td><td>앙꼬3(나윤)</td></tr>
+      <tr><td class="school">지혜중학교</td><td class="num">4차</td><td class="num">2026-04-29</td><td>고등 6교시 시작 14:50인데 캘린더 14:30으로 됨. 수정 필요</td><td>앙꼬2(현지)</td></tr>
+      <tr><td class="school">다인중학교</td><td class="num">4차</td><td class="num">2026-04-29</td><td>갑작스러운 교실 변경 통보. 다음 회차 전 교실 위치 확인</td><td>앙꼬3(나윤)</td></tr>
+      <tr><td class="school">햇빛고등학교</td><td class="num">2차</td><td class="num">2026-04-22</td><td>고등 6교시 시작 시간 캘린더 오류</td><td>앙꼬4(소영)</td></tr>
+      <tr><td class="school">참샘중학교</td><td class="num">1차</td><td class="num">2026-03-11</td><td>갑작스러운 교실 변경. 사전 확인 필요</td><td>앙꼬3(나윤)</td></tr>
+      <tr><td class="school">백양고등학교</td><td class="num">1차</td><td class="num">2026-03-04</td><td>고등 6교시 시작 시간 캘린더 오류</td><td>앙꼬2(현지)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="subnote">
+    <strong>패턴:</strong> 고등 6교시 시작시간(14:30 vs 14:50) 오류가 <strong>3개교에서 반복</strong>(지혜중학교·햇빛고등학교·백양고등학교). <strong>캘린더 시스템 일괄 수정 필요.</strong>
+  </div>
+
+  <div class="page-footer">
+    <div>FREEWILL · 앙트십스쿨 주간 운영 브리프</div>
+    <div class="page-number">05 / 06</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 6 — Section 3 (저)
+============================================================ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand"><span class="brand-accent">Freewill</span> · 주간 운영 브리프</div>
+    <div class="header-meta mono">2026-05-14 (목) · 53개교</div>
+  </div>
+
+  <div class="section-number">Section 03 · Continued</div>
+  <h2 class="section-title">미확인 이슈 — 심각도 <em>"저"</em> 10건</h2>
+  <p class="section-lede">댓글 답변 / 다음 발송 시 반영하는 건들. 반복 패턴이 있으니 마지막에 종합합니다.</p>
+
+  <div class="subsection-title">
+    <span class="dot-marker neutral"></span>
+    심각도 "저" — 댓글 답변 / 다음 발송 시 반영
+    <span class="count">10건</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">학교명</th>
+        <th style="width: 8%;">차시</th>
+        <th style="width: 14%;">수업일자</th>
+        <th style="width: 47%;">후기 요약</th>
+        <th style="width: 9%;">경과</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="school">다정고등학교</td><td class="num">4차</td><td class="num">2026-05-06</td><td>워크북 인쇄 품질 확인 요청</td><td class="num">8일</td></tr>
+      <tr><td class="school">한솔중학교</td><td class="num">5차</td><td class="num">2026-04-22</td><td>포스트잇 5색 → 7색 요청</td><td class="num">22일</td></tr>
+      <tr><td class="school">청솔자율형사립고</td><td class="num">2차</td><td class="num">2026-04-15</td><td>워크북 인쇄 품질 확인 요청</td><td class="num">29일</td></tr>
+      <tr><td class="school">샘말중학교</td><td class="num">5차</td><td class="num">2026-04-08</td><td>안전 안내 보강 요청</td><td class="num">36일</td></tr>
+      <tr><td class="school">맑은고등학교</td><td class="num">1차</td><td class="num">2026-04-01</td><td>워크북 인쇄 품질 확인 요청</td><td class="num">43일</td></tr>
+      <tr><td class="school">송림중학교</td><td class="num">1차</td><td class="num">2026-04-01</td><td>출결 저조(20명 중 14명), 학교 행사 겹침 확인</td><td class="num">43일</td></tr>
+      <tr><td class="school">예원중학교</td><td class="num">2차</td><td class="num">2026-03-18</td><td>안전 안내 보강 요청</td><td class="num">57일</td></tr>
+      <tr><td class="school">백양고등학교</td><td class="num">3차</td><td class="num">2026-03-18</td><td>포스트잇 5색 → 7색 요청</td><td class="num">57일</td></tr>
+      <tr><td class="school">고운중학교</td><td class="num">1차</td><td class="num">2026-03-11</td><td>워크북 인쇄 품질 확인 요청</td><td class="num">64일</td></tr>
+      <tr><td class="school">다온고등학교</td><td class="num">1차</td><td class="num">2026-03-04</td><td>워크북 인쇄 품질 확인 요청</td><td class="num">71일</td></tr>
+    </tbody>
+  </table>
+
+  <div class="subnote">
+    <strong>패턴:</strong> 워크북 인쇄 품질 이슈 <strong>5건 반복</strong>(다정고·청솔·맑은고·고운중·다온고). <strong>인쇄소 품질 검수 프로세스 재점검 필요.</strong>
+  </div>
+
+  <div class="page-footer">
+    <div>FREEWILL · 앙트십스쿨 주간 운영 브리프</div>
+    <div class="page-number">06 / 06</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSING — 운영 위험 신호 종합
+============================================================ -->
+<section class="closing">
+  <div>
+    <div class="closing-mark">Operational Risk Summary</div>
+    <div style="margin-top: 14mm;" class="closing-body">
+      <h2>운영 위험 신호 <em>종합</em></h2>
+      <p>이번 주 회의에서 혜선님과 함께 짚어야 할 5가지 신호.<br>각 신호는 학교 풀네임 + 근거 + 권장 액션 한 줄로 정리했습니다.</p>
+    </div>
+
+    <div style="margin-top: 14mm;">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 28%;">신호</th>
+            <th style="width: 42%;">근거</th>
+            <th style="width: 30%;">권장 액션</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="school">앙꼬5(예린) 5/20 4개교 + 미발송 2건</td>
+            <td>라온중학교·마루고등학교 D-6 미발송</td>
+            <td><span class="alert danger"><span class="dot"></span>발송팀 예린 담당 4곳 우선 처리</span></td>
+          </tr>
+          <tr>
+            <td class="school">5/20 미발송 4건 모두 D-6</td>
+            <td>수정중학교·라온중학교·다인중학교·마루고등학교</td>
+            <td><span class="alert danger"><span class="dot"></span>내일 5/15(금) 발송 마감 강제</span></td>
+          </tr>
+          <tr>
+            <td class="school">"교사 진행 어렵다" 학교 관계 위험</td>
+            <td>청솔자율형사립고·다온고등학교·예솔고등학교 (3건 누적)</td>
+            <td><span class="alert danger"><span class="dot"></span>혜선님 직접 학교 컨택 (이번 주 내)</span></td>
+          </tr>
+          <tr>
+            <td class="school">고등 6교시 시작시간 오류 반복</td>
+            <td>지혜중학교·햇빛고등학교·백양고등학교 (3건)</td>
+            <td><span class="alert warning"><span class="dot"></span>캘린더 시스템 일괄 수정</span></td>
+          </tr>
+          <tr>
+            <td class="school">워크북 인쇄 품질 이슈 누적</td>
+            <td>3월부터 동일 패턴 5건 (다정·청솔·맑은·고운·다온)</td>
+            <td><span class="alert warning"><span class="dot"></span>인쇄소 품질 검수 재점검</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="closing-foot">
+    <div>FREEWILL · 청소년 기업가정신 교육 · 앙트십스쿨</div>
+    <div class="mono">2026-05-14 · weekly-ops-brief · 53개교 · v1</div>
+  </div>
+</section>
+
+</body>
+</html>
